@@ -2,7 +2,8 @@ import React, {useState, useEffect} from 'react'
 import Search from '../search/SearchBar'
 import './navbar.css'
 
-const Navbar = ({ handleFilter, allData, setData, category, setCat, currValue,setCurrValue }) => {
+
+const Navbar = ({ handleFilter, allData, setData, category, setCat, currValue,setCurValue }) => {
     
     const getData = async ()=>{
         const response =  await fetch('https://fakestoreapi.com/products/categories');
@@ -28,7 +29,7 @@ const Navbar = ({ handleFilter, allData, setData, category, setCat, currValue,se
         else
         {
             setWritten(false);
-            setCurrValue("All");
+            setCurValue("All");
         }
         const filtered = allData.filter( (curr) => {
         return  ( curr.title.toLowerCase().includes(word.toLowerCase()) || curr.category.toLowerCase().includes(word.toLowerCase()) );
@@ -42,7 +43,7 @@ const Navbar = ({ handleFilter, allData, setData, category, setCat, currValue,se
         setData(allData);
         setCurrinput("");
         setWritten(false);
-        setCurrValue("All");
+        setCurValue("All");
     };
 
     return (
@@ -68,7 +69,7 @@ const Navbar = ({ handleFilter, allData, setData, category, setCat, currValue,se
                 isWritten={isWritten} 
                 handleSearch={handleSearch} 
                 clearInput={clearInput}  
-                /> 
+                />
 
             </div>
         </div>    

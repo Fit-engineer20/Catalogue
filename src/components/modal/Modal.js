@@ -26,7 +26,7 @@ const Modal = ({category, AllData, toggle}) => {
     return (
         <div className="modal d-flex justify-content-center align-items-center">
             <div className="modal_view d-flex justify-content-center align-items-center">
-                <i class="fas fa-times close_modal" onClick={toggle}></i>
+                <i className="fas fa-times close_modal" onClick={toggle}></i>
                 <Pie 
                     data = {{
                        labels:filter,

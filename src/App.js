@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Navbar from './components/navbar/Navbar';
 import Products from './components/products/Products';
 import Modal from './components/modal/Modal'
+import { ErrorBoundary } from './ErrorBoundary';
 import './App.css';
 
 function App() {
@@ -34,7 +35,9 @@ function App() {
 
 
   return (
-    <div className="App">
+    
+    <div className="App"> 
+      <ErrorBoundary>
       <Navbar 
       handleFilter={handleFilter} 
       allData={allData}
@@ -51,7 +54,9 @@ function App() {
                 toggle={toggle}
       />}
       <Products data={data} setData={setData} setAllData={setAllData} />
+      </ErrorBoundary>
     </div>
+    
   );
 }
 
