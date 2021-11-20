@@ -56,7 +56,7 @@ const Navbar = ({ handleFilter, allData, setData, category, setCat, currValue,se
 
             <div className="d-flex ms-auto justify-content-between drop-search-div">
 
-                <select class="form-select" aria-label="Default select example" value={currValue} onChange={handleFilter}>
+                <select className="form-select" aria-label="Default select example" value={currValue} onChange={handleFilter}>
                     <option selected>All</option>
                     { category.map((curr, index)=>{
                         return <option key={index} value={curr}>{curr}</option>

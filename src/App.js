@@ -44,7 +44,7 @@ function App() {
       currValue={currValue}
       setCurrValue={setCurrValue}
       />
-      <button type="button" class="btn btn-dark analyse" onClick={toggle}>Analyse</button>
+      <button type="button" className="btn btn-dark analyse" onClick={toggle}>Analyse</button>
       {show && <Modal 
                 category={cat}
                 AllData={allData}

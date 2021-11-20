@@ -22,18 +22,18 @@ const ProductCard = (props) => {
                   </span>
                 </p>
 
-                <i class="fas fa-rupee-sign price">{`  ${props.price}`}</i>
+                <i className="fas fa-rupee-sign price">{`  ${props.price}`}</i>
 
                 <div className="d-flex justify-content-between my-3">
 
                  <div className="d-flex justify-content-evenly align-items-center">
-                 <i class="fas fa-star"></i>
+                 <i className="fas fa-star"></i>
                  &nbsp;
                  <h6 style={{marginBottom:"0px"}}>{`Rating: ${props.rating}`}</h6>
                  </div>
 
                  <div className="d-flex justify-content-evenly align-items-center">
-                 <i class="fas fa-users"></i>
+                 <i className="fas fa-users"></i>
                  &nbsp;
                  <h6 style={{marginBottom:"0px"}}>{`Rated by: ${props.rated}`}</h6>
                  </div>

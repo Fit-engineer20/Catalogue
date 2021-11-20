@@ -5,7 +5,7 @@ import './modal.css'
 const Modal = ({category, AllData, toggle}) => {
 
     const filter = category.filter((curr)=>{
-        return (curr!="All");
+        return (curr!=="All");
     });
 
     const Itemcount = [];
