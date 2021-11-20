@@ -1,0 +1,14 @@
+
+@media(max-width:500px)
+{
+    .drop-search-div{
+        flex-direction:column !important;
+        margin-left:0 !important;
+        margin-top:1.8rem;
+        width:80vw;
+    }
+
+    .main_container{
+        flex-direction:column !important;
+    }
+}

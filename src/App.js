@@ -1,24 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import Navbar from './components/navbar/Navbar';
+import Products from './components/products/Products';
+import Modal from './components/modal/Modal'
 import './App.css';
 
 function App() {
+
+  const [data, setData] = useState([]);
+  const [allData, setAllData] = useState([]);
+  const [cat, setCat] = useState([]);
+
+  const handleFilter = (event) => {
+    const category = event.target.value;
+    if(category==="All")
+    {
+      setData(allData);
+    }
+    else{
+      const filtered = allData.filter((curr)=>{
+        return (curr.category === category);
+      });
+      setData(filtered);
+    }
+ }
+
+ const [show, setShow] = useState(false);
+
+ const toggle = ()=>{
+    setShow(!show);
+ }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar 
+      handleFilter={handleFilter} 
+      allData={allData}
+      setData={setData}
+      category={cat}
+      setCat={setCat}
+      />
+      <button type="button" class="btn btn-dark analyse" onClick={toggle}>Analyse</button>
+      {show && <Modal 
+                category={cat}
+                AllData={allData}
+                toggle={toggle}
+      />}
+      <Products data={data} setData={setData} setAllData={setAllData} />
     </div>
   );
 }
