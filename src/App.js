@@ -9,9 +9,11 @@ function App() {
   const [data, setData] = useState([]);
   const [allData, setAllData] = useState([]);
   const [cat, setCat] = useState([]);
+  const [currValue, setCurrValue] = useState("All");
 
   const handleFilter = (event) => {
     const category = event.target.value;
+    setCurrValue(category);
     if(category==="All")
     {
       setData(allData);
@@ -39,6 +41,8 @@ function App() {
       setData={setData}
       category={cat}
       setCat={setCat}
+      currValue={currValue}
+      setCurrValue={setCurrValue}
       />
       <button type="button" class="btn btn-dark analyse" onClick={toggle}>Analyse</button>
       {show && <Modal 

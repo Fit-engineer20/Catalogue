@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import Search from '../search/SearchBar'
 import './navbar.css'
 
-const Navbar = ({ handleFilter, allData, setData, category, setCat }) => {
+const Navbar = ({ handleFilter, allData, setData, category, setCat, currValue,setCurrValue }) => {
     
     const getData = async ()=>{
         const response =  await fetch('https://fakestoreapi.com/products/categories');
@@ -28,6 +28,7 @@ const Navbar = ({ handleFilter, allData, setData, category, setCat }) => {
         else
         {
             setWritten(false);
+            setCurrValue("All");
         }
         const filtered = allData.filter( (curr) => {
         return  ( curr.title.toLowerCase().includes(word.toLowerCase()) || curr.category.toLowerCase().includes(word.toLowerCase()) );
@@ -35,11 +36,13 @@ const Navbar = ({ handleFilter, allData, setData, category, setCat }) => {
         );
         setData(filtered);
     };
+    
 
     const clearInput = () => {
         setData(allData);
         setCurrinput("");
         setWritten(false);
+        setCurrValue("All");
     };
 
     return (
@@ -53,7 +56,7 @@ const Navbar = ({ handleFilter, allData, setData, category, setCat }) => {
 
             <div className="d-flex ms-auto justify-content-between drop-search-div">
 
-                <select class="form-select" aria-label="Default select example" onChange={handleFilter}>
+                <select class="form-select" aria-label="Default select example" value={currValue} onChange={handleFilter}>
                     <option selected>All</option>
                     { category.map((curr, index)=>{
                         return <option key={index} value={curr}>{curr}</option>
